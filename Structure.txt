@@ -1,0 +1,13 @@
+Student-Performance-Analysis/
+│
+├── dataset.csv
+│
+├── analysis.py
+│
+├── requirements.txt
+│
+├── README.md
+│
+└── outputs/
+    ├── student_results.csv
+    └── performance_chart.png
