@@ -1,0 +1,37 @@
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create student dataset
+data = {
+    "Name": ["Ravi", "Priya", "Rahul", "Sneha", "Arjun"],
+    "Maths": [85, 90, 65, 78, 55],
+    "Science": [80, 95, 70, 85, 60],
+    "English": [75, 88, 68, 80, 58]
+}
+
+df = pd.DataFrame(data)
+
+# Calculate average marks
+df["Average"] = df[["Maths", "Science", "English"]].mean(axis=1)
+
+# Display student results
+print("STUDENT PERFORMANCE ANALYSIS")
+print(df)
+
+# Find the highest-performing student
+topper = df.loc[df["Average"].idxmax()]
+print("\nTop Student:", topper["Name"])
+print("Average Marks:", round(topper["Average"], 2))
+
+# Display subject-wise average
+print("\nSubject-wise Average Marks:")
+print(df[["Maths", "Science", "English"]].mean())
+
+# Create a bar chart
+df.plot(x="Name", y="Average", kind="bar",
+        title="Student Performance Analysis",
+        ylabel="Average Marks", ylim=(0, 100))
+
+plt.tight_layout()
+plt.show()
